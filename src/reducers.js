@@ -26,7 +26,7 @@ function todos(state = [], action) {
             text: action.text,
             complete: false
         })
-    } else if (TOGGLE_TODO) {
+    } else if (action.type === TOGGLE_TODO) {
         return state.map((todo, index) => {
             if (index === action.index) {
                 // return {
@@ -39,10 +39,11 @@ function todos(state = [], action) {
             }
             return todo
         })
-    }else{
+    } else {
         return state
     }
 }
+
 const todoApp = combineReducers({
     visibilityFilter,
     todos
